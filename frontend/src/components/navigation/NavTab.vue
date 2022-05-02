@@ -8,7 +8,7 @@ const props = defineProps({
 
 <template>
   <div class="nav-tab">
-    <RouterLink :to="link">
+    <RouterLink class="nav-link" :to="link">
       <slot></slot>
     </RouterLink>
   </div>
@@ -16,7 +16,13 @@ const props = defineProps({
 
 <style scoped>
 .nav-tab {
-  width: 100%;
+  width: 120px;
   color: white;
+  margin-bottom: 10px;
+}
+.nav-link {
+  font-size: var(--h5-font-size);
+  color: white;
+  text-decoration: none;
 }
 </style>
