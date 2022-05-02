@@ -24,6 +24,7 @@ import NavTab from "@/components/navigation/NavTab.vue";
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: fixed;
 }
 .title {
   color: white;
