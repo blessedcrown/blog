@@ -1,11 +1,16 @@
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { uuid } from "vue-uuid";
+import { storeToRefs } from 'pinia';
+import { usePostStore } from "@/stores/post";
 import { RouterLink } from "vue-router";
 import CategoryCard from "@/components/card/CategoryCard.vue";
 import PostCard from "@/components/card/PostCard.vue";
 
-const posts = ref([
+const store = usePostStore();
+const { posts } = storeToRefs(store);
+
+const initPost = [
   {
     id: uuid.v1(),
     image: "node.png",
@@ -42,18 +47,37 @@ const posts = ref([
     title: "Creating a Schema-Based Form System",
     date: "March 12",
   }
-]);
+];
+
+onMounted(() => {
+  store.$reset();
+  initPost.forEach(post => {
+    store.addPost(post);
+  })
+})
 </script>
 
 <template>
   <content class="content">
     <h4>Dashboard</h4>
     <div class="category-container">
-      <CategoryCard class="card" type="post"></CategoryCard>
-      <CategoryCard class="card" type="category"></CategoryCard>
-      <CategoryCard class="card" type="users"></CategoryCard>
+      <CategoryCard class="category-card" type="post"></CategoryCard>
+      <CategoryCard class="category-card" type="category"></CategoryCard>
+      <CategoryCard class="category-card" type="users"></CategoryCard>
     </div>
     <h4>Latest Posts</h4>
+    <div class="post-container">
+      <PostCard
+        v-for="post in posts"
+        :key="post.id"
+        :id="post.id"
+        :image="post.image"
+        :title="post.title"
+        :date="post.date"
+        class="post-card"
+      />
+    </div>
+    <h4>Highlights</h4>
     <div class="post-container">
       <PostCard
         v-for="post in posts"
@@ -74,12 +98,13 @@ const posts = ref([
   width: max-content;
   margin-bottom: 50px;
 }
-.card {
+.category-card {
   margin-right: 40px;
+}
+.post-container {
+  margin-bottom: 50px;
 }
 .post-card {
   margin-bottom: 15px;
-}
-.post-card:hover {
 }
 </style>

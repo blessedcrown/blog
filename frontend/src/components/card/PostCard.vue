@@ -53,5 +53,6 @@ const shortTitle = computed(() => {
 }
 .post-date {
   margin: 0px;
+  color: rgb(130, 130, 130);
 }
 </style>
