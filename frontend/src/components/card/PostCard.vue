@@ -1,25 +1,29 @@
 <script setup>
-import { computed } from '@vue/runtime-core';
+import { computed } from "@vue/runtime-core";
+import { RouterLink } from "vue-router";
 
 const props = defineProps({
-  "title": String,
-  "date": String,
-  "image": String,
+  id: String,
+  title: String,
+  date: String,
+  image: String,
 });
 
 const shortTitle = computed(() => {
-  return props.title.length < 40 ? props.title : props.title.slice(0, 37) + "..."
-})
+  return props.title.length < 50
+    ? props.title
+    : props.title.slice(0, 47) + "...";
+});
 </script>
 
 <template>
-  <div class="post-card">
+  <RouterLink class="post-card" :to="{name: 'posts', params: { id: id}}">
     <img class="post-image" :src="'/src/assets/images/' + image" />
     <div class="post-right">
       <h4 class="post-title">{{ shortTitle }}</h4>
       <p class="post-date">{{ date }}</p>
     </div>
-  </div>
+  </RouterLink>
 </template>
 
 <style scope>
@@ -27,6 +31,10 @@ const shortTitle = computed(() => {
   display: flex;
   width: max-content;
   height: max-content;
+  text-decoration: none;
+}
+.post-card:hover {
+  cursor: pointer;
 }
 .post-image {
   width: 200px;
@@ -46,5 +54,4 @@ const shortTitle = computed(() => {
 .post-date {
   margin: 0px;
 }
-
 </style>

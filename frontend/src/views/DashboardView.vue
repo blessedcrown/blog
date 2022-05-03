@@ -1,27 +1,47 @@
 <script setup>
 import { ref } from "vue";
+import { uuid } from "vue-uuid";
+import { RouterLink } from "vue-router";
 import CategoryCard from "@/components/card/CategoryCard.vue";
 import PostCard from "@/components/card/PostCard.vue";
 
 const posts = ref([
   {
-    id: Math.random(),
+    id: uuid.v1(),
     image: "node.png",
     title: "Front End Tables: Sorting, Filtering, and Pagination",
     date: "May 02",
   },
   {
-    id: Math.random(),
+    id: uuid.v1(),
     image: "spring.png",
     title: "An Introduction to MVC Pattern",
     date: "April 02",
   },
   {
-    id: Math.random(),
+    id: uuid.v1(),
     image: "vuejs.png",
     title: "Creating a Schema-Based Form System",
     date: "March 12",
   },
+  {
+    id: uuid.v1(),
+    image: "vuejs.png",
+    title: "Creating a Schema-Based Form System",
+    date: "March 12",
+  },
+  {
+    id: uuid.v1(),
+    image: "vuejs.png",
+    title: "Creating a Schema-Based Form System",
+    date: "March 12",
+  },
+  {
+    id: uuid.v1(),
+    image: "vuejs.png",
+    title: "Creating a Schema-Based Form System",
+    date: "March 12",
+  }
 ]);
 </script>
 
@@ -35,19 +55,20 @@ const posts = ref([
     </div>
     <h4>Latest Posts</h4>
     <div class="post-container">
-      <PostCard v-for="post in posts" 
-        :key="post.id" 
+      <PostCard
+        v-for="post in posts"
+        :key="post.id"
+        :id="post.id"
         :image="post.image"
         :title="post.title"
         :date="post.date"
-        class="post-card" />
+        class="post-card"
+      />
     </div>
   </content>
 </template>
 
 <style scope>
-.content {
-}
 .category-container {
   display: flex;
   width: max-content;
@@ -58,5 +79,7 @@ const posts = ref([
 }
 .post-card {
   margin-bottom: 15px;
+}
+.post-card:hover {
 }
 </style>
