@@ -7,7 +7,7 @@ import UserAvatar from "@/components/avatar/UserAvatar.vue";
     <UserAvatar></UserAvatar>
   </header>
 </template>
-    
+
 <style scope>
 .header {
   height: 100px;

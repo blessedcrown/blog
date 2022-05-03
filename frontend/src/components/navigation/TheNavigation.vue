@@ -4,10 +4,10 @@ import NavTab from "@/components/navigation/NavTab.vue";
 
 <template>
   <nav class="navigation">
-    <h3 class="title">Developer<br/>Blog.</h3>
+    <h3 class="title">Developer<br />Blog.</h3>
 
     <section class="tab-container">
-      <NavTab link="dashboard">Dashboard</NavTab>
+      <NavTab link="/">Dashboard</NavTab>
       <NavTab link="posts">Posts</NavTab>
       <NavTab link="category">Category</NavTab>
       <NavTab link="settings">Settings</NavTab>

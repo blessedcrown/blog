@@ -1,13 +1,9 @@
-<script setup>
-
-</script>
+<script setup></script>
 
 <template>
-  <div class="avatar">
-
-  </div>
+  <div class="avatar"></div>
 </template>
-    
+
 <style scope>
 .avatar {
   width: 60px;
