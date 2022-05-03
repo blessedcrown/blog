@@ -29,12 +29,15 @@ const shortTitle = computed(() => {
 <style scope>
 .post-card {
   display: flex;
-  width: max-content;
+  width: 850px;
   height: max-content;
   text-decoration: none;
+  padding: 10px;
 }
 .post-card:hover {
   cursor: pointer;
+  background-color: #ebf0ff;
+  border-radius: 10px;
 }
 .post-image {
   width: 200px;
