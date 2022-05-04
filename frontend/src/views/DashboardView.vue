@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted } from "vue";
 import { uuid } from "vue-uuid";
-import { storeToRefs } from 'pinia';
+import { storeToRefs } from "pinia";
 import { usePostStore } from "@/stores/post";
 import CategoryCard from "@/components/card/CategoryCard.vue";
 import PostCard from "@/components/card/PostCard.vue";
@@ -16,7 +16,7 @@ const initPost = [
     title: "Front End Tables: Sorting, Filtering, and Pagination",
     date: "May 02",
     author: "blessedcrown",
-    category: "frontend"
+    tags: ["frontend"],
   },
   {
     id: uuid.v1(),
@@ -24,7 +24,7 @@ const initPost = [
     title: "An Introduction to MVC Pattern",
     date: "April 02",
     author: "blessedcrown",
-    category: "backend"
+    tags: ["backend"],
   },
   {
     id: uuid.v1(),
@@ -32,16 +32,16 @@ const initPost = [
     title: "Creating a Schema-Based Form System",
     date: "March 12",
     author: "blessedcrown",
-    category: "frontend"
-  }
+    tags: ["frontend"],
+  },
 ];
 
 onMounted(() => {
   store.$reset();
-  initPost.forEach(post => {
+  initPost.forEach((post) => {
     store.addPost(post);
-  })
-})
+  });
+});
 </script>
 
 <template>
