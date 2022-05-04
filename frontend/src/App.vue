@@ -1,7 +1,6 @@
 <script setup>
 import { RouterView } from "vue-router";
 import TheNavigation from "@/components/navigation/TheNavigation.vue";
-import TopHeader from "@/components/TopHeader.vue";
 </script>
 
 <template>
@@ -9,7 +8,6 @@ import TopHeader from "@/components/TopHeader.vue";
     <TheNavigation />
 
     <main class="main">
-      <TopHeader></TopHeader>
       <RouterView />
     </main>
   </div>
