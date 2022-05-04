@@ -6,7 +6,9 @@ export const usePostStore = defineStore({
     posts: []
   }),
   getters: {
-    getPost: (state) => state.posts,
+    getPostById: (state) => {
+      return (id) => state.posts.find(post => post.id === id);
+    }
   },
   actions: {
     addPost(newPost) {
