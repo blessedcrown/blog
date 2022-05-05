@@ -3,11 +3,12 @@ import { onMounted } from "vue";
 import { uuid } from "vue-uuid";
 import { storeToRefs } from "pinia";
 import { usePostStore } from "@/stores/post";
-import TagChip from "@/components/chip/TagChip.vue";
+import SampleMarkdown from "@/assets/markdown/sample.md";
 import PostCard from "@/components/card/PostCard.vue";
 
 const store = usePostStore();
 const { posts } = storeToRefs(store);
+
 
 const initPost = [
   {
@@ -17,6 +18,7 @@ const initPost = [
     date: "May 02",
     author: "blessedcrown",
     tags: ["frontend"],
+    content: SampleMarkdown
   },
   {
     id: uuid.v1(),
@@ -25,6 +27,7 @@ const initPost = [
     date: "April 02",
     author: "blessedcrown",
     tags: ["backend"],
+    content: SampleMarkdown
   },
   {
     id: uuid.v1(),
@@ -33,6 +36,7 @@ const initPost = [
     date: "March 12",
     author: "blessedcrown",
     tags: ["frontend"],
+    content: SampleMarkdown
   },
 ];
 
@@ -54,7 +58,7 @@ onMounted(() => {
       <img class="header-image" src="@/assets/images/logo.svg" />
     </div>
 
-    <h4>Latest Posts</h4>
+    <h3>Latest Posts</h3>
     <div class="post-container">
       <PostCard
         v-for="post in posts"
@@ -66,7 +70,7 @@ onMounted(() => {
         class="post-card"
       />
     </div>
-    <h4>Popular</h4>
+    <h3>Popular</h3>
     <div class="post-container">
       <PostCard
         v-for="post in posts"
