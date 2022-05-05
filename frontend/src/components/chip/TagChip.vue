@@ -1,11 +1,11 @@
 <script setup>
 const props = defineProps({
-  "tag": String
-})
+  tag: String,
+});
 </script>
 
 <template>
-  <router-link :to="{'name': 'tags', params: {'tag': tag}}" class="chip">
+  <router-link :to="{ name: 'tags', params: { tag: tag } }" class="chip">
     <slot></slot>
   </router-link>
 </template>
@@ -19,10 +19,10 @@ const props = defineProps({
   box-shadow: 0px 0px 1px rgb(210, 210, 210);
   text-decoration: none;
   font-weight: 600;
-  color: rgb(100,100,100);
+  color: rgb(100, 100, 100);
 }
 .chip:hover {
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
 }
 </style>

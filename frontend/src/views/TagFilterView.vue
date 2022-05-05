@@ -6,11 +6,25 @@ const tagName = route.params.tag;
 </script>
 
 <template>
-  <h3>Articles</h3>
+  <div class="content-top">
+    <h1>Tags</h1>
+    <div class="category-container">
+      <TagChip tag="frontend">Frontend</TagChip>
+    </div>
+  </div>
+  <h3>
+    Posts tagged: <span class="tag-name">{{ tagName }}</span>
+  </h3>
   <p class="description"><span class="post-count">3</span> posts found</p>
 </template>
 
 <style scoped>
+.content-top {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .tag-name {
   border-bottom: 3px solid var(--background-mute);
 }

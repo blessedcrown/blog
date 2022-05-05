@@ -30,6 +30,6 @@ import TheNavigation from "@/components/navigation/TheNavigation.vue";
   margin-top: 50px;
 }
 .content {
-  width: 900px;
+  width: 800px;
 }
 </style>

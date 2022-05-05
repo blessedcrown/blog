@@ -7,7 +7,10 @@ defineProps({
 
 <template>
   <div class="nav-tab">
-    <router-link :class="{'nav-link--logo': isLogo, 'nav-link': !isLogo}" :to="link">
+    <router-link
+      :class="{ 'nav-link--logo': isLogo, 'nav-link': !isLogo }"
+      :to="link"
+    >
       <slot></slot>
     </router-link>
   </div>

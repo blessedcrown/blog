@@ -47,10 +47,11 @@ onMounted(() => {
 <template>
   <content class="content">
     <div class="content-top">
-      <h1>Tags</h1>
-      <div class="category-container">
-        <TagChip tag="frontend">Frontend</TagChip>
+      <div>
+        <h1>Template blog made with vue.</h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis itaque harum illum, ut reprehenderit, nesciunt quam fuga, voluptates nihil temporibus fugit expedita? Placeat optio iusto aperiam, aliquam eveniet consequatur reiciendis?</p>
       </div>
+      <img class="header-image" src="@/assets/images/logo.svg" />
     </div>
 
     <h4>Latest Posts</h4>
@@ -84,8 +85,13 @@ onMounted(() => {
 .content-top {
   width: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  margin-bottom: 20px;
+}
+.header-image {
+  width: 150px;
+  height: 150px;
+  margin-left: 60px;
 }
 .category-container {
   display: flex;

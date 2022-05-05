@@ -6,10 +6,9 @@ import NavTab from "@/components/navigation/NavTab.vue";
   <div class="navigation-wrapper">
     <nav class="navigation">
       <NavTab isLogo="true" link="/">Developer Blog</NavTab>
-      <NavTab link="/">📘 Articles</NavTab>
+      <NavTab link="/articles">📘 Articles</NavTab>
     </nav>
   </div>
-
 </template>
 
 <style scoped>
@@ -24,7 +23,7 @@ import NavTab from "@/components/navigation/NavTab.vue";
   z-index: 9999;
 }
 .navigation {
-  width: 900px;
+  width: 800px;
   display: flex;
   align-items: center;
 }
@@ -36,6 +35,5 @@ import NavTab from "@/components/navigation/NavTab.vue";
 }
 .tab-container {
   display: flex;
-
 }
 </style>

@@ -9,13 +9,13 @@ const route = useRoute();
 const getPost = store.getPostById;
 const postId = route.params.id;
 let post = getPost(postId);
-if(post == undefined) {
-    post = {
-        "title": "Default",
-        "author": "Default",
-        "date": "Default",
-        "tags": ["default"]
-    };
+if (post == undefined) {
+  post = {
+    title: "Default",
+    author: "Default",
+    date: "Default",
+    tags: ["default"],
+  };
 }
 </script>
 
@@ -28,7 +28,9 @@ if(post == undefined) {
         <span class="post-date">{{ post.date }}</span>
       </p>
       <h3>{{ post.title }}</h3>
-      <TagChip v-for="tag in post.tags" :key="post.id" :tag="tag">{{ tag }}</TagChip>
+      <TagChip v-for="tag in post.tags" :key="post.id" :tag="tag">{{
+        tag
+      }}</TagChip>
     </div>
   </div>
 </template>
