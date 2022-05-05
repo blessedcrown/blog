@@ -8,7 +8,7 @@ import TheNavigation from "@/components/navigation/TheNavigation.vue";
     <TheNavigation />
 
     <main class="main">
-      <RouterView />
+      <RouterView class="content" />
     </main>
   </div>
 </template>
@@ -18,13 +18,18 @@ import TheNavigation from "@/components/navigation/TheNavigation.vue";
   width: 100vw;
   height: 100vh;
   display: flex;
+  position: relative;
 }
 .main {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
   height: 100%;
   padding: 40px;
-  margin-left: 340px;
+  margin-top: 50px;
+}
+.content {
+  width: 900px;
 }
 </style>

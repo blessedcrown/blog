@@ -3,7 +3,7 @@ import { onMounted } from "vue";
 import { uuid } from "vue-uuid";
 import { storeToRefs } from "pinia";
 import { usePostStore } from "@/stores/post";
-import CategoryCard from "@/components/card/CategoryCard.vue";
+import TagChip from "@/components/chip/TagChip.vue";
 import PostCard from "@/components/card/PostCard.vue";
 
 const store = usePostStore();
@@ -46,12 +46,13 @@ onMounted(() => {
 
 <template>
   <content class="content">
-    <h4>Dashboard</h4>
-    <div class="category-container">
-      <CategoryCard class="category-card" type="post"></CategoryCard>
-      <CategoryCard class="category-card" type="category"></CategoryCard>
-      <CategoryCard class="category-card" type="users"></CategoryCard>
+    <div class="content-top">
+      <h1>Tags</h1>
+      <div class="category-container">
+        <TagChip tag="frontend">Frontend</TagChip>
+      </div>
     </div>
+
     <h4>Latest Posts</h4>
     <div class="post-container">
       <PostCard
@@ -64,7 +65,7 @@ onMounted(() => {
         class="post-card"
       />
     </div>
-    <h4>Highlights</h4>
+    <h4>Popular</h4>
     <div class="post-container">
       <PostCard
         v-for="post in posts"
@@ -80,6 +81,12 @@ onMounted(() => {
 </template>
 
 <style scope>
+.content-top {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .category-container {
   display: flex;
   width: max-content;

@@ -3,35 +3,39 @@ import NavTab from "@/components/navigation/NavTab.vue";
 </script>
 
 <template>
-  <nav class="navigation">
-    <h3 class="title">Developer<br />Blog.</h3>
+  <div class="navigation-wrapper">
+    <nav class="navigation">
+      <NavTab isLogo="true" link="/">Developer Blog</NavTab>
+      <NavTab link="/">📘 Articles</NavTab>
+    </nav>
+  </div>
 
-    <section class="tab-container">
-      <NavTab link="/">Articles</NavTab>
-    </section>
-  </nav>
 </template>
 
 <style scoped>
-.navigation {
-  width: 340px;
-  height: 100%;
-  background-color: var(--background-mute);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.navigation-wrapper {
+  width: 100%;
+  height: 60px;
   position: fixed;
+  display: flex;
+  justify-content: center;
+  background-color: var(--navbar-color);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 9999;
 }
-.title {
-  color: white;
-  margin-bottom: 70px;
+.navigation {
+  width: 900px;
+  display: flex;
+  align-items: center;
+}
+.logo {
+  font-size: var(--h5-font-size);
+  font-weight: var(--h-font-weight);
+  color: var(--font-color);
+  text-decoration: none;
 }
 .tab-container {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  margin-bottom: 200px;
+
 }
 </style>
