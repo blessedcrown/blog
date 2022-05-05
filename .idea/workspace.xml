@@ -13,12 +13,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c66d64e4-3e5e-4fc3-9fba-e9d124afa547" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/blog/domain/BaseEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/trash" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/trash" afterDir="false" />
-    </list>
+    <list default="true" id="c66d64e4-3e5e-4fc3-9fba-e9d124afa547" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,6 +76,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -89,15 +88,13 @@
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -139,7 +136,9 @@
       <option name="presentableId" value="Default" />
       <updated>1651497252318</updated>
       <workItem from="1651497253368" duration="2186000" />
-      <workItem from="1651499607702" duration="1371000" />
+      <workItem from="1651499607702" duration="2027000" />
+      <workItem from="1651582905675" duration="373000" />
+      <workItem from="1651723274110" duration="1119000" />
     </task>
     <servers />
   </component>
@@ -179,6 +178,38 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="420" y="278" key="FileChooserDialogImpl/0.0.2560.1040@0.0.2560.1040" timestamp="1651497417814" />
+    <state width="1234" height="281" key="GridCell.Tab.0.bottom" timestamp="1651503044824">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="1234" height="281" key="GridCell.Tab.0.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1651503044824" />
+    <state width="1234" height="281" key="GridCell.Tab.0.center" timestamp="1651503044824">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="1234" height="281" key="GridCell.Tab.0.center/0.0.2560.1040@0.0.2560.1040" timestamp="1651503044824" />
+    <state width="1234" height="281" key="GridCell.Tab.0.left" timestamp="1651503044824">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="1234" height="281" key="GridCell.Tab.0.left/0.0.2560.1040@0.0.2560.1040" timestamp="1651503044824" />
+    <state width="1234" height="281" key="GridCell.Tab.0.right" timestamp="1651503044824">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="1234" height="281" key="GridCell.Tab.0.right/0.0.2560.1040@0.0.2560.1040" timestamp="1651503044824" />
+    <state width="1234" height="281" key="GridCell.Tab.1.bottom" timestamp="1651503044824">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="1234" height="281" key="GridCell.Tab.1.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1651503044824" />
+    <state width="1234" height="281" key="GridCell.Tab.1.center" timestamp="1651503044824">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="1234" height="281" key="GridCell.Tab.1.center/0.0.2560.1040@0.0.2560.1040" timestamp="1651503044824" />
+    <state width="1234" height="281" key="GridCell.Tab.1.left" timestamp="1651503044824">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="1234" height="281" key="GridCell.Tab.1.left/0.0.2560.1040@0.0.2560.1040" timestamp="1651503044824" />
+    <state width="1234" height="281" key="GridCell.Tab.1.right" timestamp="1651503044824">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="1234" height="281" key="GridCell.Tab.1.right/0.0.2560.1040@0.0.2560.1040" timestamp="1651503044824" />
     <state x="141" y="168" key="SettingsEditor" timestamp="1651499393422">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
