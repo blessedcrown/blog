@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, watch } from "vue";
+import { ref, watch } from "vue";
 import PostListItem from "@/components/list/PostListItem.vue";
 import TextField from "@/components/input/TextField.vue";
 import { storeToRefs } from "pinia";
@@ -7,18 +7,16 @@ import { usePostStore } from "@/stores/post";
 
 const store = usePostStore();
 const { posts } = storeToRefs(store);
-const filterWord = ref('');
+const filterWord = ref("");
 
 const filteredPosts = ref([]);
 filteredPosts.value = [...posts.value];
 
 watch(filterWord, () => {
-    // console.log(filteredPosts.value);
-    // console.log(posts.value.filter(post => post.title.toLowerCase().includes(filterWord.value.toLowerCase())))
-    filteredPosts.value = posts.value.filter(post => post.title.toLowerCase().includes(filterWord.value.toLowerCase()));
-    console.log(posts.value.filter(post => post.title.toLowerCase().includes(filterWord.value.toLowerCase())));
-    console.log(filteredPosts.value);
-})
+  filteredPosts.value = posts.value.filter((post) =>
+    post.title.toLowerCase().includes(filterWord.value.toLowerCase())
+  );
+});
 </script>
 
 <template>
@@ -29,16 +27,21 @@ watch(filterWord, () => {
   </section>
 
   <section class="post-list">
-    <PostListItem v-for="post in filteredPosts" :link="post.id" :title="post.title" :date="post.date"></PostListItem>
+    <PostListItem
+      v-for="post in filteredPosts"
+      :link="post.id"
+      :title="post.title"
+      :date="post.date"
+    ></PostListItem>
   </section>
 </template>
 
 <style scoped>
 .section-top {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
 }
 .tag-name {
   border-bottom: 3px solid var(--background-mute);
@@ -47,7 +50,8 @@ watch(filterWord, () => {
   font-size: var(--h5-font-size);
   color: rgb(100, 100, 100);
 }
-.post-count {
-  color: black;
+.post-list {
+  display: flex;
+  flex-direction: column;
 }
 </style>

@@ -1,5 +1,4 @@
 <script setup>
-
 import { storeToRefs } from "pinia";
 import { usePostStore } from "@/stores/post";
 
@@ -7,7 +6,6 @@ import PostCard from "@/components/card/PostCard.vue";
 
 const store = usePostStore();
 const { posts } = storeToRefs(store);
-
 </script>
 
 <template>
