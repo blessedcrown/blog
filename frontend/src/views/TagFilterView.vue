@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watch } from "vue";
+import { ref } from "vue";
 import { useRoute } from "vue-router";
 import { storeToRefs } from "pinia";
 import { usePostStore } from "@/stores/post";
@@ -19,10 +19,10 @@ filteredPosts.value = posts.value.filter((post) =>
 
 <template>
   <section class="content-top">
-    <h3>
+    <h1>
       Posts tagged: <span class="tag-name">{{ tagName }}</span>
-    </h3>
-    <p class="description"><span class="post-count">3</span> posts found</p>
+    </h1>
+    <p class="description"><span class="post-count">{{filteredPosts.length}}</span> posts found</p>
   </section>
 
   <section class="post-list">

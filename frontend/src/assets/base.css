@@ -1,11 +1,12 @@
 :root {
   /* Color */
-  --primary-color: #6b76f3;
-  --accent: #132C9C;
+  --primary-color-mute: #6b76f3;
+  --primary-color: #0065ff;
   --font-color: #343434;
   --dark-font-color: #777777;
   --navbar-color: #f0f0f0;
   --navbar-color-hover: #dddddd;
+  --input-background: #f0f0f0;
   --border-color: #e0e0e0;
   --code-background-color: #373c47;
   --code-font-color: #b3b9c5;
