@@ -9,14 +9,15 @@ const store = usePostStore();
 const { posts } = storeToRefs(store);
 const filterWord = ref('');
 
-const filteredPosts = computed(() => {
-    return filterWord.value == '' ? posts.value : posts.value.filter(post => post.title == filterWord.value);
-});
+const filteredPosts = ref([]);
+filteredPosts.value = [...posts.value];
 
 watch(filterWord, () => {
-    console.log(filteredPosts.value);
-    console.log(posts.value.filter(post => post.title.toLowerCase().includes(filterWord.value.toLowerCase())))
+    // console.log(filteredPosts.value);
+    // console.log(posts.value.filter(post => post.title.toLowerCase().includes(filterWord.value.toLowerCase())))
     filteredPosts.value = posts.value.filter(post => post.title.toLowerCase().includes(filterWord.value.toLowerCase()));
+    console.log(posts.value.filter(post => post.title.toLowerCase().includes(filterWord.value.toLowerCase())));
+    console.log(filteredPosts.value);
 })
 </script>
 
