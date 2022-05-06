@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import DashboardView from "../views/DashboardView.vue";
 import PostDetailView from "../views/PostDetailView.vue";
+import PostNewView from "../views/PostNewView.vue";
 import PostFilterView from "../views/PostFilterView.vue";
 import TagFilterView from "../views/TagFilterView.vue";
 
@@ -11,6 +12,11 @@ const router = createRouter({
       path: "/",
       name: "dashboard",
       component: DashboardView,
+    },
+    {
+      path: "/post/new",
+      name: "new post",
+      component: PostNewView,
     },
     {
       path: "/posts/:id",

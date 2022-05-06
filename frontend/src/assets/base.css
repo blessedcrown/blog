@@ -58,6 +58,7 @@ h6 {
   font-family: var(--h-font-family);
   color: var(--font-color);
   margin: 0 0 1.5rem 0;
+  line-height: 1.2;
 }
 
 h1 {

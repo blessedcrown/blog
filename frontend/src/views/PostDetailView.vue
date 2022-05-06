@@ -16,7 +16,7 @@ if (post == undefined) {
     author: "Default",
     date: "Default",
     tags: ["default"],
-    content: "Default"
+    content: "Default",
   };
 }
 </script>

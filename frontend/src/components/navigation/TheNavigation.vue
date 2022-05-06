@@ -6,7 +6,8 @@ import NavTab from "@/components/navigation/NavTab.vue";
   <div class="navigation-wrapper">
     <nav class="navigation">
       <NavTab isLogo="true" link="/">Developer Blog</NavTab>
-      <NavTab link="/articles">📘 Articles</NavTab>
+      <NavTab class="tab" link="/articles">📘 Articles</NavTab>
+      <NavTab class="tab" link="/post/new">📄 Create Post</NavTab>
     </nav>
   </div>
 </template>
@@ -33,7 +34,7 @@ import NavTab from "@/components/navigation/NavTab.vue";
   color: var(--font-color);
   text-decoration: none;
 }
-.tab-container {
-  display: flex;
+.tab {
+  margin-right: 20px;
 }
 </style>

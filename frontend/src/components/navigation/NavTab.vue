@@ -20,7 +20,7 @@ defineProps({
 .nav-link--logo {
   padding: 3px 8px;
   border-radius: 5px;
-  margin-right: 25px;
+  margin-right: 50px;
 
   font-size: var(--h5-font-size);
   font-weight: var(--h-font-weight);
@@ -30,7 +30,6 @@ defineProps({
 .nav-link {
   padding: 3px 8px;
   border-radius: 5px;
-  margin-right: 25px;
 
   font-size: var(--h5-font-size);
   font-weight: var(--p-font-weight);
