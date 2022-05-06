@@ -1,9 +1,12 @@
 <script setup>
-
+defineProps({
+  'modelValue': String
+});
+defineEmits(['update:modelValue']);
 </script>
 
 <template>
-  <input type="text" class="input" placeholder="Search Post" />
+  <input :value="modelValue" @input="$emit('update:modelValue', $event.target.value)" type="text" class="input" placeholder="Search Post" />
 </template>
 
 <style scoped>
