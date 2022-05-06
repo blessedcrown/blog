@@ -17,7 +17,7 @@ const shortTitle = computed(() => {
 </script>
 
 <template>
-  <RouterLink class="post-card" :to="{name: 'posts', params: { id: id}}">
+  <RouterLink class="post-card" :to="{ name: 'posts', params: { id: id } }">
     <img class="post-image" :src="'/src/assets/images/' + image" />
     <div class="post-right">
       <h4 class="post-title">{{ shortTitle }}</h4>

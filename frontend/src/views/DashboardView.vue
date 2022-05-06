@@ -1,85 +1,65 @@
 <script setup>
-import { onMounted } from "vue";
-import { uuid } from "vue-uuid";
-import { storeToRefs } from 'pinia';
+import { storeToRefs } from "pinia";
 import { usePostStore } from "@/stores/post";
-import CategoryCard from "@/components/card/CategoryCard.vue";
+
 import PostCard from "@/components/card/PostCard.vue";
 
 const store = usePostStore();
 const { posts } = storeToRefs(store);
-
-const initPost = [
-  {
-    id: uuid.v1(),
-    image: "node.png",
-    title: "Front End Tables: Sorting, Filtering, and Pagination",
-    date: "May 02",
-    author: "blessedcrown",
-    category: "frontend"
-  },
-  {
-    id: uuid.v1(),
-    image: "spring.png",
-    title: "An Introduction to MVC Pattern",
-    date: "April 02",
-    author: "blessedcrown",
-    category: "backend"
-  },
-  {
-    id: uuid.v1(),
-    image: "vuejs.png",
-    title: "Creating a Schema-Based Form System",
-    date: "March 12",
-    author: "blessedcrown",
-    category: "frontend"
-  }
-];
-
-onMounted(() => {
-  store.$reset();
-  initPost.forEach(post => {
-    store.addPost(post);
-  })
-})
 </script>
 
 <template>
-  <content class="content">
-    <h4>Dashboard</h4>
-    <div class="category-container">
-      <CategoryCard class="category-card" type="post"></CategoryCard>
-      <CategoryCard class="category-card" type="category"></CategoryCard>
-      <CategoryCard class="category-card" type="users"></CategoryCard>
+  <section class="content-top">
+    <div>
+      <h1>Template blog made with vue.</h1>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis
+        itaque harum illum, ut reprehenderit, nesciunt quam fuga, voluptates
+        nihil temporibus fugit expedita? Placeat optio iusto aperiam, aliquam
+        eveniet consequatur reiciendis?
+      </p>
     </div>
-    <h4>Latest Posts</h4>
-    <div class="post-container">
-      <PostCard
-        v-for="post in posts"
-        :key="post.id"
-        :id="post.id"
-        :image="post.image"
-        :title="post.title"
-        :date="post.date"
-        class="post-card"
-      />
-    </div>
-    <h4>Highlights</h4>
-    <div class="post-container">
-      <PostCard
-        v-for="post in posts"
-        :key="post.id"
-        :id="post.id"
-        :image="post.image"
-        :title="post.title"
-        :date="post.date"
-        class="post-card"
-      />
-    </div>
-  </content>
+    <img class="header-image" src="@/assets/images/logo.svg" />
+  </section>
+
+  <h3>Latest Posts</h3>
+  <div class="post-container">
+    <PostCard
+      v-for="post in posts"
+      :key="post.id"
+      :id="post.id"
+      :image="post.image"
+      :title="post.title"
+      :date="post.date"
+      class="post-card"
+    />
+  </div>
+  <h3>Popular</h3>
+  <div class="post-container">
+    <PostCard
+      v-for="post in posts"
+      :key="post.id"
+      :id="post.id"
+      :image="post.image"
+      :title="post.title"
+      :date="post.date"
+      class="post-card"
+    />
+  </div>
 </template>
 
 <style scope>
+.content-top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.header-image {
+  width: 150px;
+  height: 150px;
+  margin-left: 60px;
+}
 .category-container {
   display: flex;
   width: max-content;

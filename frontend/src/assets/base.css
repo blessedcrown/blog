@@ -1,17 +1,21 @@
 :root {
   /* Color */
-  --primary-color: #223DA1;
+  --primary-color: #6b76f3;
   --accent: #132C9C;
-  --font-color: #010412;
-  --background-mute: #5C74CC;
-  --background-soft: #b3c3ff;
+  --font-color: #343434;
+  --dark-font-color: #777777;
+  --navbar-color: #f0f0f0;
+  --navbar-color-hover: #dddddd;
+  --border-color: #e0e0e0;
+  --code-background-color: #373c47;
+  --code-font-color: #b3b9c5;
 
   /* Font */
-  --h1-font-size: 3.052rem;
-  --h2-font-size: 2.441rem;
-  --h3-font-size: 1.953rem;
-  --h4-font-size: 1.563rem;
-  --h5-font-size: 1.25rem;
+  --h1-font-size: 2.488rem;
+  --h2-font-size: 2.074rem;
+  --h3-font-size: 1.728rem;
+  --h4-font-size: 1.44rem;
+  --h5-font-size: 1.2rem;
   --h6-font-size: 1rem;
   --h-font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
   Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
@@ -41,6 +45,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 h1,
@@ -53,6 +58,7 @@ h6 {
   font-family: var(--h-font-family);
   color: var(--font-color);
   margin: 0 0 1.5rem 0;
+  line-height: 1.2;
 }
 
 h1 {
@@ -88,4 +94,15 @@ a {
   font-size: var(--p-font-size);
   color: var(--font-color);
   margin: 0 0 1.5rem 0;
+}
+
+pre {
+  background-color: var(--code-background-color);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 10px 0px;
+}
+
+code {
+  color: var(--code-font-color);
 }
