@@ -4,6 +4,7 @@ import com.example.blog.domain.BaseEntity;
 import com.example.blog.domain.like.entity.Like;
 import com.example.blog.domain.reply.entity.Reply;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Builder
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
@@ -37,7 +39,8 @@ public class Post extends BaseEntity {
     @JoinColumn(name = "like_id")
     private List<Like> likes =  new ArrayList<>();
 
-    private void updateContent(String content) {
+    public void updateTitle(String title) { this.title = title; }
+    public void updateContent(String content) {
         this.content = content;
     }
 }
