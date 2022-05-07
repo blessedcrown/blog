@@ -1,7 +1,9 @@
 package com.example.blog.domain.reply.dto;
 
 import com.example.blog.domain.reply.entity.Reply;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ReplyMapper {
 
     public Reply toEntity(ReplyDto.CreateRequest request) {

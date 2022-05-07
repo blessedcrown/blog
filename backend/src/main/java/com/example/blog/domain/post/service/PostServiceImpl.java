@@ -33,7 +33,7 @@ public class PostServiceImpl implements PostService{
 
     @Override
     public Page<PostDto.DetailResponse> findAll(Pageable pageable) {
-        return postRepository.findAllOrderByIdDesc(pageable).map(PostMapper::toDetailResponse);
+        return postRepository.findAllByOrderByIdDesc(pageable).map(PostMapper::toDetailResponse);
     }
 
     @Override

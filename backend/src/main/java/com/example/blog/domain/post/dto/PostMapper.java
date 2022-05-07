@@ -1,7 +1,9 @@
 package com.example.blog.domain.post.dto;
 
 import com.example.blog.domain.post.entity.Post;
+import org.springframework.stereotype.Component;
 
+@Component
 public class PostMapper {
 
     public Post toEntity(PostDto.CreateRequest request) {
