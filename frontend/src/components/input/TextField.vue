@@ -1,6 +1,7 @@
 <script setup>
 defineProps({
   modelValue: String,
+  placeholder: String,
 });
 defineEmits(["update:modelValue"]);
 </script>
@@ -11,7 +12,7 @@ defineEmits(["update:modelValue"]);
     @input="$emit('update:modelValue', $event.target.value)"
     type="text"
     class="input"
-    placeholder="Search Post"
+    :placeholder="placeholder"
   />
 </template>
 

@@ -23,7 +23,7 @@ watch(filterWord, () => {
   <section class="section-top">
     <h1>Articles</h1>
     <p class="description">Search up all the dev related post here!</p>
-    <TextField v-model="filterWord"></TextField>
+    <TextField v-model="filterWord" placeholder="Search Post"></TextField>
   </section>
 
   <section class="post-list">

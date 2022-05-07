@@ -1,10 +1,10 @@
 <script setup>
 defineProps({
-  'color': {
-    'type': String,
-    'default': 'primary'
-  }
-})
+  color: {
+    type: String,
+    default: "primary",
+  },
+});
 </script>
 
 <template>

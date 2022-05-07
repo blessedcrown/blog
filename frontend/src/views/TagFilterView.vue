@@ -22,7 +22,9 @@ filteredPosts.value = posts.value.filter((post) =>
     <h1>
       Posts tagged: <span class="tag-name">{{ tagName }}</span>
     </h1>
-    <p class="description"><span class="post-count">{{filteredPosts.length}}</span> posts found</p>
+    <p class="description">
+      <span class="post-count">{{ filteredPosts.length }}</span> posts found
+    </p>
   </section>
 
   <section class="post-list">
