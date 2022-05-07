@@ -1,7 +1,7 @@
 package com.example.blog.domain.post.entity;
 
 import com.example.blog.domain.BaseEntity;
-import com.example.blog.domain.like.entity.Like;
+import com.example.blog.domain.like.entity.Likes;
 import com.example.blog.domain.reply.entity.Reply;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -37,7 +37,7 @@ public class Post extends BaseEntity {
 
     @OneToMany
     @JoinColumn(name = "like_id")
-    private List<Like> likes =  new ArrayList<>();
+    private List<Likes> likes =  new ArrayList<>();
 
     public void updateTitle(String title) { this.title = title; }
     public void updateContent(String content) {
