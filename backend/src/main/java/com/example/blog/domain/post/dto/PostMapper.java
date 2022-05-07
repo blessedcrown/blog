@@ -28,6 +28,7 @@ public class PostMapper {
                 .title(post.getTitle())
                 .content(post.getContent())
                 .pictureId(post.getPictureId())
+                .createdDate(post.getCreatedDate())
                 .build();
     }
 
