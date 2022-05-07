@@ -29,7 +29,7 @@ public class PostMapper {
                 .build();
     }
 
-    public PostDto.DetailResponse toDetailResponse(Post post) {
+    public static PostDto.DetailResponse toDetailResponse(Post post) {
         return PostDto.DetailResponse.builder()
                 .id(post.getId())
                 .title(post.getTitle())

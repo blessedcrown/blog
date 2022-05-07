@@ -5,6 +5,8 @@ import com.example.blog.domain.post.dto.PostMapper;
 import com.example.blog.domain.post.entity.Post;
 import com.example.blog.domain.post.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -27,6 +29,11 @@ public class PostServiceImpl implements PostService{
     public PostDto.DetailResponse findById(Long id) {
         Post found = postRepository.findById(id).get();
         return postMapper.toDetailResponse(found);
+    }
+
+    @Override
+    public Page<PostDto.DetailResponse> findAll(Pageable pageable) {
+        return postRepository.findAllOrderByIdDesc(pageable).map(PostMapper::toDetailResponse);
     }
 
     @Override
