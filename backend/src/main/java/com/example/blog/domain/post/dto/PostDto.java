@@ -1,6 +1,7 @@
 package com.example.blog.domain.post.dto;
 
 import com.example.blog.domain.like.entity.Likes;
+import com.example.blog.domain.picture.entity.Picture;
 import com.example.blog.domain.reply.entity.Reply;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,7 +19,6 @@ public abstract class PostDto {
     public static class CreateRequest {
         private String title;
         private String content;
-        private Long pictureId;
     }
 
     @Data
@@ -28,7 +28,7 @@ public abstract class PostDto {
         private Long id;
         private String title;
         private String content;
-        private Long pictureId;
+        private List<Picture> pictures;
         private LocalDateTime createdDate;
     }
 
@@ -40,7 +40,7 @@ public abstract class PostDto {
         private Long id;
         private String title;
         private String content;
-        private Long pictureId;
+        private List<Picture> pictures;
     }
 
     @Data
@@ -50,7 +50,7 @@ public abstract class PostDto {
         private Long id;
         private String title;
         private String content;
-        private Long pictureId;
+        private List<Picture> pictures;
         private List<Reply> replies;
         private List<Likes> likes;
         private LocalDateTime lastModifiedDate;
@@ -63,7 +63,7 @@ public abstract class PostDto {
         private Long id;
         private String title;
         private String content;
-        private Long pictureId;
+        private List<Picture> pictures;
         private List<Reply> replies;
         private List<Likes> likes;
         private LocalDateTime createdDate;

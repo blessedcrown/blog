@@ -10,7 +10,6 @@ public class PostMapper {
         return Post.builder()
                 .title(request.getTitle())
                 .content(request.getContent())
-                .pictureId(request.getPictureId())
                 .build();
     }
 
@@ -19,7 +18,7 @@ public class PostMapper {
                 .id(request.getId())
                 .title(request.getTitle())
                 .content(request.getContent())
-                .pictureId(request.getPictureId()).build();
+                .build();
     }
 
     public PostDto.CreateResponse toCreateResponse(Post post) {
@@ -27,7 +26,7 @@ public class PostMapper {
                 .id(post.getId())
                 .title(post.getTitle())
                 .content(post.getContent())
-                .pictureId(post.getPictureId())
+                .pictures(post.getPictures())
                 .createdDate(post.getCreatedDate())
                 .build();
     }
@@ -37,7 +36,7 @@ public class PostMapper {
                 .id(post.getId())
                 .title(post.getTitle())
                 .content(post.getContent())
-                .pictureId(post.getPictureId())
+                .pictures(post.getPictures())
                 .replies(post.getReplies())
                 .likes(post.getLikes())
                 .createdDate(post.getCreatedDate())
@@ -50,7 +49,7 @@ public class PostMapper {
                 .id(post.getId())
                 .title(post.getTitle())
                 .content(post.getContent())
-                .pictureId(post.getPictureId())
+                .pictures(post.getPictures())
                 .replies(post.getReplies())
                 .likes(post.getLikes())
                 .lastModifiedDate(post.getLastModifiedDate())

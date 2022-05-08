@@ -2,6 +2,7 @@ package com.example.blog.domain.post.entity;
 
 import com.example.blog.domain.BaseEntity;
 import com.example.blog.domain.like.entity.Likes;
+import com.example.blog.domain.picture.entity.Picture;
 import com.example.blog.domain.reply.entity.Reply;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,8 +29,9 @@ public class Post extends BaseEntity {
     @Column(nullable = false)
     private String content;
 
-    @Column
-    private Long pictureId;
+    @OneToMany
+    @JoinColumn(name = "picture_id")
+    private List<Picture> pictures = new ArrayList<>();
 
     @OneToMany
     @JoinColumn(name = "reply_id")
@@ -42,5 +44,11 @@ public class Post extends BaseEntity {
     public void updateTitle(String title) { this.title = title; }
     public void updateContent(String content) {
         this.content = content;
+    }
+
+    public void setPictures(List<Picture> pics) {
+        for (Picture pic : pics) {
+            this.pictures.add(pic);
+        }
     }
 }
