@@ -2,10 +2,12 @@
 import { storeToRefs } from "pinia";
 import { usePostStore } from "@/stores/post";
 
+import BaseButton from "@/components/button/BaseButton.vue";
 import PostCard from "@/components/card/PostCard.vue";
 
 const store = usePostStore();
 const { posts } = storeToRefs(store);
+
 </script>
 
 <template>
@@ -18,6 +20,7 @@ const { posts } = storeToRefs(store);
         nihil temporibus fugit expedita? Placeat optio iusto aperiam, aliquam
         eveniet consequatur reiciendis?
       </p>
+      <BaseButton @click="store.initPost()">Create Dummy Posts</BaseButton>
     </div>
     <img class="header-image" src="@/assets/images/logo.svg" />
   </section>

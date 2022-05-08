@@ -5,7 +5,6 @@ import { uuid } from "vue-uuid";
 import { RouterView } from "vue-router";
 import SampleMarkdown from "@/assets/markdown/sample.md";
 import TheNavigation from "@/components/navigation/TheNavigation.vue";
-import * as PostApi from "@/api/postApi.js";
 
 const store = usePostStore();
 
@@ -40,10 +39,9 @@ const initPost = [
 ];
 
 onMounted(() => {
-  console.log("App Mounted");
-  initPost.forEach((post) => {
-    store.addPost(post);
-  });
+  // initPost.forEach((post) => {
+  //   store.addPost(post);
+  // });
 });
 </script>
 
