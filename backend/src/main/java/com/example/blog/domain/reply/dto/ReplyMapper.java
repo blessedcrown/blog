@@ -19,8 +19,8 @@ public class ReplyMapper {
                 .build();
     }
 
-    public ReplyDto.UpdateReponse toUpdateResponse(Reply reply) {
-        return ReplyDto.UpdateReponse.builder()
+    public ReplyDto.UpdateResponse toUpdateResponse(Reply reply) {
+        return ReplyDto.UpdateResponse.builder()
                 .id(reply.getId())
                 .reply(reply.getReply())
                 .lastModifiedDate(reply.getLastModifiedDate())
