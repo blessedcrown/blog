@@ -38,7 +38,7 @@ public abstract class ReplyDto {
     @Data
     @Builder
     @AllArgsConstructor
-    public static class UpdateReponse {
+    public static class UpdateResponse {
         private Long id;
         private String reply;
         private LocalDateTime lastModifiedDate;

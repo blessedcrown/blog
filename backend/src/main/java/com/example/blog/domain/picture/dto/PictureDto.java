@@ -1,6 +1,7 @@
 package com.example.blog.domain.picture.dto;
 
 import com.example.blog.domain.picture.entity.Picture;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,6 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 @NoArgsConstructor
+@AllArgsConstructor
 public class PictureDto {
     private Long id;
     private String originalFileName;
