@@ -3,6 +3,7 @@ import { format } from "date-fns";
 import { reactive, ref } from "vue";
 import BaseButton from "@/components/button/BaseButton.vue";
 import PostModal from "@/components/modal/PostModal.vue";
+import PostEditor from "@/components/editor/PostEditor.vue";
 import { usePostStore } from "@/stores/post";
 
 const store = usePostStore();
@@ -46,11 +47,7 @@ const toggleModal = () => {
         v-model="post.title"
         placeholder="Title"
       />
-      <textarea
-        class="textarea"
-        v-model="post.content"
-        placeholder="Content"
-      ></textarea>
+      <PostEditor></PostEditor>
     </div>
     <div class="button-container">
       <BaseButton color="primary" @click="onSave">Save</BaseButton>
