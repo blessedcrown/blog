@@ -1,5 +1,6 @@
 package com.example.blog.domain.post.controller;
 
+import com.example.blog.domain.picture.service.PictureService;
 import com.example.blog.domain.post.dto.PostDto;
 import com.example.blog.domain.post.service.PostService;
 import lombok.RequiredArgsConstructor;
@@ -7,6 +8,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 
 @RequiredArgsConstructor
@@ -15,10 +19,13 @@ import org.springframework.web.bind.annotation.*;
 public class PostController {
 
     private final PostService postService;
+    private final PictureService pictureService;
 
     @PostMapping
-    public ResponseEntity<?> create(@ModelAttribute PostDto.CreateRequest request) {
-        PostDto.CreateResponse response = postService.create(request);
+    public ResponseEntity<?> create(@ModelAttribute PostDto.CreateRequest request,
+                                    @RequestParam("files") List<MultipartFile> multipartFiles) throws Exception {
+        PostDto.CreateResponse response = postService.create(request, multipartFiles);
+
         return ResponseEntity.ok().body(response);
     }
 

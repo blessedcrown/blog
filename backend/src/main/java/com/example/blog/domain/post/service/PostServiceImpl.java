@@ -1,5 +1,8 @@
 package com.example.blog.domain.post.service;
 
+import com.example.blog.domain.picture.entity.Picture;
+import com.example.blog.domain.picture.repository.PictureRepository;
+import com.example.blog.domain.picture.service.PictureHandler;
 import com.example.blog.domain.post.dto.PostDto;
 import com.example.blog.domain.post.dto.PostMapper;
 import com.example.blog.domain.post.entity.Post;
@@ -8,8 +11,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
 
 @RequiredArgsConstructor
 @Transactional
@@ -18,10 +24,23 @@ public class PostServiceImpl implements PostService{
 
     private final PostRepository postRepository;
     private final PostMapper postMapper;
-
+    private final PictureHandler pictureHandler;
+    private final PictureRepository pictureRepository;
     @Override
-    public PostDto.CreateResponse create(PostDto.CreateRequest request) {
+    public PostDto.CreateResponse create(PostDto.CreateRequest request, List<MultipartFile> multipartFiles) throws Exception {
         Post saved = postRepository.save(postMapper.toEntity(request));
+
+        List<Picture> picList = pictureHandler.parsePictureInfo(multipartFiles);
+        if(picList.isEmpty()) {
+
+        }
+        else {
+            //List<Picture> pictureBeans = new ArrayList<>();
+            for(Picture pic : picList) {
+                saved.getPictures().add(pictureRepository.save(pic));
+            }
+            //saved.setPictures(pictureBeans);
+        }
         return postMapper.toCreateResponse(saved);
     }
 
