@@ -39,6 +39,7 @@ const initPost = [
 ];
 
 onMounted(() => {
+    store.fetchPost(0, 10);
   // initPost.forEach((post) => {
   //   store.addPost(post);
   // });
