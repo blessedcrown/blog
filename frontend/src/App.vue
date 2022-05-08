@@ -5,6 +5,7 @@ import { uuid } from "vue-uuid";
 import { RouterView } from "vue-router";
 import SampleMarkdown from "@/assets/markdown/sample.md";
 import TheNavigation from "@/components/navigation/TheNavigation.vue";
+import * as PostApi from "@/api/postApi.js";
 
 const store = usePostStore();
 
