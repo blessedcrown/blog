@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -19,6 +21,7 @@ public abstract class PostDto {
     public static class CreateRequest {
         private String title;
         private String content;
+        private List<MultipartFile> multipartFiles;
     }
 
     @Data

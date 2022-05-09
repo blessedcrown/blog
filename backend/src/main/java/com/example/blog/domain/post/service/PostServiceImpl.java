@@ -27,10 +27,10 @@ public class PostServiceImpl implements PostService{
     private final PictureHandler pictureHandler;
     private final PictureRepository pictureRepository;
     @Override
-    public PostDto.CreateResponse create(PostDto.CreateRequest request, List<MultipartFile> multipartFiles) throws Exception {
+    public PostDto.CreateResponse create(PostDto.CreateRequest request) throws Exception {
         Post saved = postRepository.save(postMapper.toEntity(request));
 
-        List<Picture> picList = pictureHandler.parsePictureInfo(multipartFiles);
+        List<Picture> picList = pictureHandler.parsePictureInfo(request.getMultipartFiles());
         if(picList.isEmpty()) {
 
         }

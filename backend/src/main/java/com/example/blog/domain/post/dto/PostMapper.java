@@ -1,7 +1,10 @@
 package com.example.blog.domain.post.dto;
 
+import com.example.blog.domain.picture.entity.Picture;
 import com.example.blog.domain.post.entity.Post;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
 
 @Component
 public class PostMapper {
@@ -10,6 +13,7 @@ public class PostMapper {
         return Post.builder()
                 .title(request.getTitle())
                 .content(request.getContent())
+                .pictures(new ArrayList<Picture>())
                 .build();
     }
 

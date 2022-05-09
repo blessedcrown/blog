@@ -22,9 +22,8 @@ public class PostController {
     private final PictureService pictureService;
 
     @PostMapping
-    public ResponseEntity<?> create(@ModelAttribute PostDto.CreateRequest request,
-                                    @RequestParam("files") List<MultipartFile> multipartFiles) throws Exception {
-        PostDto.CreateResponse response = postService.create(request, multipartFiles);
+    public ResponseEntity<?> create(@ModelAttribute PostDto.CreateRequest request) throws Exception {
+        PostDto.CreateResponse response = postService.create(request);
 
         return ResponseEntity.ok().body(response);
     }

@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 public interface PostService {
-    public PostDto.CreateResponse create(PostDto.CreateRequest request, List<MultipartFile> multipartFiles) throws Exception;
+    public PostDto.CreateResponse create(PostDto.CreateRequest request) throws Exception;
 
     public PostDto.DetailResponse findById(Long id);
 
