@@ -30,15 +30,15 @@ public class Post extends BaseEntity {
     private String content;
 
     @OneToMany
-    @JoinColumn(name = "picture_id")
+    @JoinColumn(name = "post_id")
     private List<Picture> pictures = new ArrayList<>();
 
     @OneToMany
-    @JoinColumn(name = "reply_id")
+    @JoinColumn(name = "post_id")
     private List<Reply> replies = new ArrayList<>();
 
     @OneToMany
-    @JoinColumn(name = "like_id")
+    @JoinColumn(name = "post_id")
     private List<Likes> likes =  new ArrayList<>();
 
     public void updateTitle(String title) { this.title = title; }
