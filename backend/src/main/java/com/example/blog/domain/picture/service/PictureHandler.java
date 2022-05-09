@@ -17,7 +17,7 @@ public class PictureHandler {
     public List<Picture> parsePictureInfo(List<MultipartFile> multipartFiles) throws Exception {
         List<Picture> picList = new ArrayList<>();
 
-        if(multipartFiles.isEmpty()) {
+        if(multipartFiles == null || multipartFiles.isEmpty()) {
             return picList;
         }
 
