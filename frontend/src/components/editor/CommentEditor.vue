@@ -7,7 +7,7 @@ const isWriting = ref(true);
 <template>
   <div class="editor">
     <div class="editor__tabs">
-      <button class="editor__tab" :class="{'active': isWriting}" @click="isWriting = true">Write</button>
+      <button class="editor__tab" :class="{'active': isWriting}" @click="isWriting = true">Comment</button>
       <button class="editor__tab" :class="{'active': !isWriting}" @click="isWriting = false">Preview</button>
     </div>
 
@@ -60,7 +60,7 @@ const isWriting = ref(true);
   font-size: var(--p-font-size);
   font-family: var(--p-font-family);
   resize: none;
-  height: 600px;
+  height: 200px;
   width: 100%;
   overflow-y: scroll;
 }
@@ -71,7 +71,7 @@ const isWriting = ref(true);
   border: 1px solid var(--border-color);
   border-radius: 2px;
   width: 100%;
-  height: 600px;
+  height: 200px;
   overflow-y: scroll;
   padding: 10px 16px;
 }

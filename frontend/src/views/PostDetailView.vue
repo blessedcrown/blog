@@ -2,7 +2,8 @@
 import { useRoute } from "vue-router";
 import TagChip from "../components/chip/TagChip.vue";
 import { usePostStore } from "@/stores/post";
-import MarkdownSample from "@/assets/markdown/sample.md";
+import BaseButton from "@/components/button/BaseButton.vue";
+import CommentEditor from "@/components/editor/CommentEditor.vue";
 
 const store = usePostStore();
 const route = useRoute();
@@ -34,7 +35,16 @@ if (post == undefined) {
         tag
       }}</TagChip>
       <div class="content-container">
-        <MarkdownSample></MarkdownSample>
+         <VueShowdown
+            class="content"
+            flavor="github"
+            :markdown="post.content"
+            :options="{ emoji: true }"/>
+      </div>
+      <div class="comment-container">
+        <h2>Comments</h2>
+        <CommentEditor class="comment-editor"></CommentEditor>
+        <BaseButton>Comment</BaseButton>
       </div>
     </div>
   </div>
@@ -54,5 +64,11 @@ if (post == undefined) {
 }
 .content-container {
   margin: 50px 0px;
+}
+.comment-editor {
+  margin-bottom: 20px;
+}
+.comment-container {
+  margin-bottom: 50px;
 }
 </style>

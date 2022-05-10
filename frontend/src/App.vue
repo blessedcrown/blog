@@ -16,7 +16,30 @@ const initPost = [
     date: "May 02",
     author: "blessedcrown",
     tags: ["frontend"],
-    content: SampleMarkdown,
+    content: `
+    An h1 header
+
+    Paragraphs are separated by a blank line.
+
+    2nd paragraph. *Italic*, **bold**. lists
+    look like:
+
+    * this one
+    * that one
+    * the other one
+
+    Note that --- not considering the asterisk --- the actual text
+    content starts at 4-columns in.
+
+    > Block quotes are
+    > written like so.
+    >
+    > They can span multiple paragraphs,
+    > if you like.
+
+    Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., "it's all
+    in chapters 12--14"). Three dots ... will be converted to an ellipsis.
+    Unicode is supported. ☺`,
   },
   {
     id: uuid.v1(),
@@ -25,7 +48,30 @@ const initPost = [
     date: "April 02",
     author: "blessedcrown",
     tags: ["backend"],
-    content: SampleMarkdown,
+    content: `
+    An h1 header
+
+    Paragraphs are separated by a blank line.
+
+    2nd paragraph. *Italic*, **bold**. lists
+    look like:
+
+    * this one
+    * that one
+    * the other one
+
+    Note that --- not considering the asterisk --- the actual text
+    content starts at 4-columns in.
+
+    > Block quotes are
+    > written like so.
+    >
+    > They can span multiple paragraphs,
+    > if you like.
+
+    Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., "it's all
+    in chapters 12--14"). Three dots ... will be converted to an ellipsis.
+    Unicode is supported. ☺`,
   },
   {
     id: uuid.v1(),
@@ -34,15 +80,40 @@ const initPost = [
     date: "March 12",
     author: "blessedcrown",
     tags: ["frontend"],
-    content: SampleMarkdown,
+    content: `
+    An h1 header
+
+    Paragraphs are separated by a blank line.
+
+    2nd paragraph. *Italic*, **bold**. lists
+    look like:
+
+    * this one
+    * that one
+    * the other one
+
+    Note that --- not considering the asterisk --- the actual text
+    content starts at 4-columns in.
+
+    > Block quotes are
+    > written like so.
+    >
+    > They can span multiple paragraphs,
+    > if you like.
+
+    Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., "it's all
+    in chapters 12--14"). Three dots ... will be converted to an ellipsis.
+    Unicode is supported. ☺`,
   },
 ];
 
+console.log(initPost[0].content);
+
 onMounted(() => {
   store.fetchPost(0, 10);
-  // initPost.forEach((post) => {
-  //   store.addPost(post);
-  // });
+  initPost.forEach((post) => {
+    store.addPost(post);
+  });
 });
 </script>
 

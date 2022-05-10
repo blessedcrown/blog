@@ -42,15 +42,16 @@ export const usePostStore = defineStore({
       posts.forEach((post) => this.addPost(post));
     },
     async addPost(newPost) {
-      await axios
-        .post("/api/post", qs.stringify(newPost), {
-          headers: {
-            Content: "application/x-www-form-urlencoded",
-          },
-        })
-        .then((response) => {
-          this.posts = [...this.posts, response.data];
-        });
+        this.posts = [...this.posts, newPost];
+    //   await axios
+    //     .post("/api/post", qs.stringify(newPost), {
+    //       headers: {
+    //         Content: "application/x-www-form-urlencoded",
+    //       },
+    //     })
+    //     .then((response) => {
+    //       this.posts = [...this.posts, response.data];
+    //     });
     },
     deletePost() {},
   },

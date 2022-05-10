@@ -26,6 +26,9 @@ const { posts } = storeToRefs(store);
 
   <h3>Latest Posts</h3>
   <div class="post-container">
+    <div v-if="posts.length == 0" class="notice-card">
+      <h5 class="notice-text">There are no posts yet!</h5>
+    </div>
     <PostCard
       v-for="post in posts"
       :key="post.id"
@@ -38,6 +41,9 @@ const { posts } = storeToRefs(store);
   </div>
   <h3>Popular</h3>
   <div class="post-container">
+    <div v-if="posts.length == 0" class="notice-card">
+      <h5 class="notice-text">There are no posts yet!</h5>
+    </div>
     <PostCard
       v-for="post in posts"
       :key="post.id"
@@ -75,5 +81,19 @@ const { posts } = storeToRefs(store);
 }
 .post-card {
   margin-bottom: 15px;
+}
+.notice-card {
+    width: 100%;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--input-background);
+    border-radius: 5px;
+}
+.notice-text {
+    text-align: center;
+    margin: 0px;
 }
 </style>
