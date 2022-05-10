@@ -7,8 +7,8 @@ const isWriting = ref(true);
 <template>
   <div class="editor">
     <div class="editor__tabs">
-      <button @click="isWriting = true">Write</button>
-      <button @click="isWriting = false">Preview</button>
+      <button class="editor__tab" :class="{'active': isWriting}" @click="isWriting = true">Write</button>
+      <button class="editor__tab" :class="{'active': !isWriting}" @click="isWriting = false">Preview</button>
     </div>
 
     <textarea
@@ -36,25 +36,43 @@ const isWriting = ref(true);
 }
 .editor__tabs {
   display: flex;
+  width: 100%;
+}
+.editor__tab {
+  background-color: white;
+  border: 1px solid var(--border-color);
+  border-bottom: 0px;
+  border-radius: 5px 5px 0px 0px;
+  padding: 10px 20px;
+  transition: all 0.1s ease;
+}
+.editor__tab:hover {
+  cursor: pointer;
+  background-color: var(--border-color);
+}
+.active {
+  background-color: var(--border-color);
 }
 .textarea {
-  background-color: var(--input-background);
-  border: 0px;
+  border: 1px solid var(--border-color);
   border-radius: 2px;
   padding: 10px 16px;
   font-size: var(--p-font-size);
   font-family: var(--p-font-family);
   resize: none;
   height: 600px;
-  border-right: 2px solid var(--border-color);
   width: 100%;
+  overflow-y: scroll;
 }
 .textarea:focus {
   outline: none;
 }
 .preview {
-  background-color: var(--input-background);
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
   width: 100%;
+  height: 600px;
+  overflow-y: scroll;
   padding: 10px 16px;
 }
 </style>

@@ -4,6 +4,7 @@ import { reactive, ref } from "vue";
 import BaseButton from "@/components/button/BaseButton.vue";
 import PostModal from "@/components/modal/PostModal.vue";
 import PostEditor from "@/components/editor/PostEditor.vue";
+import TextField from "@/components/input/TextField.vue";
 import { usePostStore } from "@/stores/post";
 
 const store = usePostStore();
@@ -41,12 +42,7 @@ const toggleModal = () => {
     ></PostModal>
     <h1>New Post</h1>
     <div class="section-container">
-      <input
-        type="text"
-        class="input-text"
-        v-model="post.title"
-        placeholder="Title"
-      />
+      <TextField class="input-text" placeholder="Title" v-model="post.title"></TextField>
       <PostEditor></PostEditor>
     </div>
     <div class="button-container">
@@ -66,16 +62,7 @@ const toggleModal = () => {
   font-weight: var(--h-font-weight);
 }
 .input-text {
-  background-color: var(--input-background);
-  border: 0px;
-  border-radius: 2px;
-  padding: 10px 16px;
-  font-size: var(--p-font-size);
   margin-bottom: 20px;
-  font-family: var(--p-font-family);
-}
-.input-text:focus {
-  outline: none;
 }
 .textarea {
   background-color: var(--input-background);
