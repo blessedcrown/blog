@@ -13,17 +13,17 @@ const isUploaded = ref(false);
 
 const toggleIsUploaded = () => {
   isUploaded.value = !isUploaded.value;
-}
+};
 
 function onInputChange(e) {
-    let image = e.target.files[0];
-    let reader = new FileReader();
-    reader.readAsDataURL(image);
-    reader.onload = e => {
-        uploadedFile.value = e.target.result;
-        e.target.value = null
-        isUploaded.value = true;
-    };
+  let image = e.target.files[0];
+  let reader = new FileReader();
+  reader.readAsDataURL(image);
+  reader.onload = (e) => {
+    uploadedFile.value = e.target.result;
+    e.target.value = null;
+    isUploaded.value = true;
+  };
 }
 </script>
 
@@ -42,23 +42,33 @@ function onInputChange(e) {
         >
           <label class="upload-wrapper" for="file-input">
             <div v-if="dropZoneActive">
-                <div>Drop Them</div>
+              <div>Drop Them</div>
             </div>
             <font-awesome-icon
-                class="upload-icon"
-                icon="upload"
+              class="upload-icon"
+              icon="upload"
             ></font-awesome-icon>
             <p class="upload-text">
-                Include an image to make it more inviting for readers!
+              Include an image to make it more inviting for readers!
             </p>
 
-            <input type="file" accept="image/jpeg, image/png, image/heic, image/heif" style="display: none" id="file-input" @change="onInputChange" />
+            <input
+              type="file"
+              accept="image/jpeg, image/png, image/heic, image/heif"
+              style="display: none"
+              id="file-input"
+              @change="onInputChange"
+            />
           </label>
-
         </DropZone>
         <div class="image-container" v-if="isUploaded">
-            <img class="upload-image" :src="uploadedFile" />
-            <BaseButton @click="toggleIsUploaded" class="cancel-button" color="normal">Cancel Upload</BaseButton>
+          <img class="upload-image" :src="uploadedFile" />
+          <BaseButton
+            @click="toggleIsUploaded"
+            class="cancel-button"
+            color="normal"
+            >Cancel Upload</BaseButton
+          >
         </div>
       </div>
 

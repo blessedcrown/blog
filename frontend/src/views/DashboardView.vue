@@ -7,7 +7,6 @@ import PostCard from "@/components/card/PostCard.vue";
 
 const store = usePostStore();
 const { posts } = storeToRefs(store);
-
 </script>
 
 <template>

@@ -1,27 +1,41 @@
 <script setup>
-import { ref } from 'vue';
+import { ref } from "vue";
 
-const content = ref('');
+const isWriting = ref(true);
 </script>
 
 <template>
-    <div class="editor">
-        <textarea class="textarea" placeholder="Content" v-model="content"></textarea>
-        <VueShowdown
-            class="preview"
-            placeholder="preview"
-            :markdown="content"
-            flavor="github"
-            :options="{ emoji: true }"
-        />
+  <div class="editor">
+    <div class="editor__tabs">
+      <button @click="isWriting = true">Write</button>
+      <button @click="isWriting = false">Preview</button>
     </div>
+
+    <textarea
+      v-if="isWriting"
+      class="textarea"
+      placeholder="Content"
+      v-model="content"
+    ></textarea>
+    <VueShowdown
+      v-else
+      class="preview"
+      placeholder="preview"
+      :markdown="content"
+      flavor="github"
+      :options="{ emoji: true }"
+    />
+  </div>
 </template>
 
 <style scoped>
 .editor {
-    display: flex;
-    justify-content: stretch;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.editor__tabs {
+  display: flex;
 }
 .textarea {
   background-color: var(--input-background);
