@@ -14,9 +14,11 @@
     "axios": "^0.27.2",
     "date-fns": "^2.28.0",
     "pinia": "^2.0.13",
+    "qs": "^6.10.3",
     "vite-plugin-md": "^0.13.0",
     "vue": "^3.2.33",
     "vue-router": "^4.0.14",
+    "vue-showdown": "^3.3.0",
     "vue-uuid": "^3.0.0"
   },
   "devDependencies": {
