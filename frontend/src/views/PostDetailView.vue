@@ -1,15 +1,21 @@
 <script setup>
+import { ref, reactive } from "vue";
 import { useRoute } from "vue-router";
 import TagChip from "../components/chip/TagChip.vue";
+import { storeToRefs } from "pinia";
 import { usePostStore } from "@/stores/post";
+import { useCommentStore } from "@/stores/comment";
 import BaseButton from "@/components/button/BaseButton.vue";
 import CommentEditor from "@/components/editor/CommentEditor.vue";
+import { format } from 'date-fns';
 
-const store = usePostStore();
 const route = useRoute();
-
-const getPost = store.getPostById;
 const postId = route.params.id;
+
+/* POST */
+const postStore = usePostStore();
+
+const getPost = postStore.getPostById;
 let post = getPost(postId);
 if (post == undefined) {
   post = {
@@ -19,6 +25,26 @@ if (post == undefined) {
     tags: ["default"],
     content: "Default",
   };
+}
+
+const commentStore = useCommentStore();
+const { comments } = storeToRefs(commentStore);
+const filteredComments = ref([]);
+filteredComments.value = comments.value.filter((comment) => comment.postId === postId);
+const commentInEditor = ref("");
+
+const onCreateComment = () => {
+  console.log(commentInEditor.value);
+
+  let newComment = {
+    id: Math.random(),
+    postId: postId,
+    date: format(new Date(), 'yyyy/MM/dd'),
+    reply: commentInEditor.value,
+  }
+
+  commentStore.addComment(newComment);
+  filteredComments.value = [...filteredComments.value, newComment];
 }
 </script>
 
@@ -43,8 +69,15 @@ if (post == undefined) {
       </div>
       <div class="comment-container">
         <h2>Comments</h2>
-        <CommentEditor class="comment-editor"></CommentEditor>
-        <BaseButton>Comment</BaseButton>
+        <CommentEditor class="comment-editor" v-model="commentInEditor"></CommentEditor>
+        <BaseButton @click="onCreateComment">Comment</BaseButton>
+      </div>
+      <div class="comment" v-for="comment in filteredComments">
+        <div class="comment__avatar"></div>
+        <div class="comment__section">
+          <p class="comment__date"><span class="comment__author">Guest</span> commented on {{comment.date}}</p>
+          <p>{{comment.reply}}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -70,5 +103,42 @@ if (post == undefined) {
 }
 .comment-container {
   margin-bottom: 50px;
+}
+
+.comment {
+  display: flex;
+  margin-bottom: 20px;
+}
+.comment__avatar {
+  border-radius: 5px;
+  background-color: var(--navbar-color);
+  width: 50px;
+  height: 50px;
+}
+.comment__section {
+  background-color: var(--navbar-color);
+  border-radius: 5px;
+  padding: 10px 20px;
+  position: relative;
+  margin-left: 60px;
+  width: 100%;
+}
+.comment__section::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 0px;
+  height: 0px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid var(--navbar-color);
+  transform: translateX(-100%);
+}
+.comment__author {
+  font-weight: 600;
+}
+.comment__date {
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
 }
 </style>

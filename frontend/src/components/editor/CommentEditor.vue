@@ -1,6 +1,11 @@
 <script setup>
 import { ref } from "vue";
 
+defineProps({
+  modelValue: String
+});
+
+defineEmits(["update:modelValue"]);
 const isWriting = ref(true);
 </script>
 
@@ -15,6 +20,7 @@ const isWriting = ref(true);
       v-if="isWriting"
       class="textarea"
       placeholder="Start writing in markdown format"
+      @input="$emit('update:modelValue', $event.target.value)"
       v-model="content"
     ></textarea>
     <VueShowdown
