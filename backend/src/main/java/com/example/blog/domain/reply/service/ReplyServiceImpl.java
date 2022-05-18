@@ -29,7 +29,7 @@ public class ReplyServiceImpl implements ReplyService {
     }
 
     @Override
-    public ReplyDto.UpdateReponse update(ReplyDto.UpdateRequest request, Long postId, Long replyId) {
+    public ReplyDto.UpdateResponse update(ReplyDto.UpdateRequest request, Long postId, Long replyId) {
         Reply found = replyRepository.findById(replyId).get();
         found.updateReply(request.getReply());
         return replyMapper.toUpdateResponse(found);
