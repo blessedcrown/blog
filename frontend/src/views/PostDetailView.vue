@@ -68,17 +68,25 @@ const onCreateComment = () => {
             :options="{ emoji: true }"/>
       </div>
       <div class="comment-container">
-        <h2>Comments</h2>
-        <CommentEditor class="comment-editor" v-model="commentInEditor"></CommentEditor>
-        <BaseButton @click="onCreateComment">Comment</BaseButton>
-      </div>
-      <div class="comment" v-for="comment in filteredComments">
-        <div class="comment__avatar"></div>
-        <div class="comment__section">
-          <p class="comment__date"><span class="comment__author">Guest</span> commented on {{comment.date}}</p>
-          <p>{{comment.reply}}</p>
+        <div class="editor-container">
+          <h2>Comments</h2>
+          <CommentEditor class="comment-editor" v-model="commentInEditor"></CommentEditor>
+          <BaseButton @click="onCreateComment">Comment</BaseButton>
+        </div>
+        
+        <div class="comment" v-for="comment in filteredComments">
+          <div class="comment__avatar"></div>
+          <div class="comment__section">
+            <p class="comment__date"><span class="comment__author">Guest</span> commented on {{comment.date}}</p>
+            <VueShowdown
+              class="content"
+              flavor="github"
+              :markdown="comment.reply"
+              :options="{ emoji: true }"/>
+          </div>
         </div>
       </div>
+
     </div>
   </div>
 </template>
@@ -96,7 +104,10 @@ const onCreateComment = () => {
   font-weight: 600;
 }
 .content-container {
-  margin: 50px 0px;
+  margin: 60px 0px;
+}
+.editor-container {
+  margin-bottom: 50px;
 }
 .comment-editor {
   margin-bottom: 20px;
@@ -112,15 +123,15 @@ const onCreateComment = () => {
 .comment__avatar {
   border-radius: 5px;
   background-color: var(--navbar-color);
-  width: 50px;
+  min-width: 50px;
   height: 50px;
+  margin-right: 30px;
 }
 .comment__section {
   background-color: var(--navbar-color);
   border-radius: 5px;
   padding: 10px 20px;
   position: relative;
-  margin-left: 60px;
   width: 100%;
 }
 .comment__section::before {
