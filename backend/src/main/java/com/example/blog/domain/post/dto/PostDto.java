@@ -43,7 +43,7 @@ public abstract class PostDto {
         private Long id;
         private String title;
         private String content;
-        private List<Picture> pictures;
+        private List<MultipartFile> multipartFiles;
     }
 
     @Data
