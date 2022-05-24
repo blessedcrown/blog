@@ -21,13 +21,13 @@ const isWriting = ref(true);
       class="textarea"
       placeholder="Start writing in markdown format"
       @input="$emit('update:modelValue', $event.target.value)"
-      v-model="content"
+      :value="modelValue"
     ></textarea>
     <VueShowdown
       v-else
       class="preview"
       placeholder="preview"
-      :markdown="content"
+      :markdown="modelValue"
       flavor="github"
       :options="{ emoji: true }"
     />

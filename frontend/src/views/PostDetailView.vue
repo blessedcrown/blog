@@ -34,8 +34,6 @@ filteredComments.value = comments.value.filter((comment) => comment.postId === p
 const commentInEditor = ref("");
 
 const onCreateComment = () => {
-  console.log(commentInEditor.value);
-
   let newComment = {
     id: Math.random(),
     postId: postId,
@@ -45,6 +43,8 @@ const onCreateComment = () => {
 
   commentStore.addComment(newComment);
   filteredComments.value = [...filteredComments.value, newComment];
+
+  commentInEditor.value = "";
 }
 </script>
 
