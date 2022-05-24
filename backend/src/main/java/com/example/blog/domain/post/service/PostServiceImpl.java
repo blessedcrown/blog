@@ -61,6 +61,8 @@ public class PostServiceImpl implements PostService{
         found.updateTitle(request.getTitle());
         found.updateContent(request.getContent());
         //TODO 사진 수정 로직 추가 해야됨
+        //사진 수정 참고 자료
+        //https://moonsbeen.tistory.com/300
         return postMapper.toUpdateResponse(found);
     }
 
