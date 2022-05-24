@@ -55,6 +55,7 @@ public class PostServiceImpl implements PostService{
         //https://moonsbeen.tistory.com/300
 
         //파일을 첨부하였는지 체크
+        //testing!!
         if (request.getMultipartFiles().size() != 0){
             try {
                 //전에 업로드된 파일이 있었으면 삭제해야한다
