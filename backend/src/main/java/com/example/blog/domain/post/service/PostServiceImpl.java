@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,16 +32,7 @@ public class PostServiceImpl implements PostService{
         Post saved = postRepository.save(postMapper.toEntity(request));
 
         List<Picture> picList = pictureHandler.parsePictureInfo(request.getMultipartFiles());
-        if(picList.isEmpty()) {
-
-        }
-        else {
-            //List<Picture> pictureBeans = new ArrayList<>();
-            for(Picture pic : picList) {
-                saved.getPictures().add(pictureRepository.save(pic));
-            }
-            //saved.setPictures(pictureBeans);
-        }
+        savePicture(picList, saved);
         return postMapper.toCreateResponse(saved);
     }
 
@@ -58,11 +50,29 @@ public class PostServiceImpl implements PostService{
     @Override
     public PostDto.UpdateResponse update(PostDto.UpdateRequest request, Long id) {
         Post found = postRepository.findById(id).get();
-        found.updateTitle(request.getTitle());
-        found.updateContent(request.getContent());
-        //TODO 사진 수정 로직 추가 해야됨
+        List<Picture> preexistingPicList = found.getPictures();
         //사진 수정 참고 자료
         //https://moonsbeen.tistory.com/300
+
+        //파일을 첨부하였는지 체크
+        if (request.getMultipartFiles().size() != 0){
+            try {
+                //전에 업로드된 파일이 있었으면 삭제해야한다
+                if (preexistingPicList != null) {
+                    for (Picture pic : preexistingPicList) {
+                        File file = new File(pic.getFilePath());
+                        file.delete();
+                    }
+                }
+                List<Picture> newPicList = pictureHandler.parsePictureInfo(request.getMultipartFiles());
+                savePicture(newPicList, found);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        found.updateTitle(request.getTitle());
+        found.updateContent(request.getContent());
+
         return postMapper.toUpdateResponse(found);
     }
 
@@ -70,5 +80,18 @@ public class PostServiceImpl implements PostService{
     public void delete(Long id) {
         Post toDelete = postRepository.findById(id).get();
         postRepository.delete(toDelete);
+    }
+
+    public void savePicture(List<Picture> picList, Post post) {
+        if(picList.isEmpty()) {
+
+        }
+        else {
+            //List<Picture> pictureBeans = new ArrayList<>();
+            for(Picture pic : picList) {
+                post.getPictures().add(pictureRepository.save(pic));
+            }
+            //saved.setPictures(pictureBeans);
+        }
     }
 }
