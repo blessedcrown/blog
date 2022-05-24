@@ -9,7 +9,7 @@ export const usePostStore = defineStore({
   }),
   getters: {
     getPostById: (state) => {
-      return (id) => state.posts.find((post) => post.id === id);
+      return (id) => state.posts.find((post) => post.id == id);
     },
   },
   actions: {
@@ -41,16 +41,15 @@ export const usePostStore = defineStore({
       posts.forEach((post) => this.addPost(post));
     },
     async addPost(newPost) {
-        this.posts = [...this.posts, newPost];
-    //   await axios
-    //     .post("/api/post", qs.stringify(newPost), {
-    //       headers: {
-    //         Content: "application/x-www-form-urlencoded",
-    //       },
-    //     })
-    //     .then((response) => {
-    //       this.posts = [...this.posts, response.data];
-    //     });
+      await axios
+        .post("/api/post", qs.stringify(newPost), {
+          headers: {
+            Content: "application/x-www-form-urlencoded",
+          },
+        })
+        .then((response) => {
+          this.posts = [...this.posts, response.data];
+        });
     },
     deletePost() {},
   },

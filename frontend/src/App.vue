@@ -107,8 +107,6 @@ const initPost = [
   },
 ];
 
-console.log(initPost[0].content);
-
 onMounted(() => {
   store.fetchPost(0, 10);
   initPost.forEach((post) => {
