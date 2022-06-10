@@ -116,7 +116,7 @@ code {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #eeeeee;
+  opacity: 0;
 }
 
 /* Handle */
