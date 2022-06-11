@@ -19,17 +19,13 @@ const post = reactive({
   tags: [],
   content: "",
 });
-const onSave = () => {
-  //   post.date = format(new Date(), 'yyyy/MM/dd');
-  //   // TODO: Get user context from pinia store
-  //   post.author = "blessedcrown";
-  //   store.addPost(post);
 
+const openModal = () => {
   isModalOpen.value = true;
 };
 
-const toggleModal = () => {
-  isModalOpen.value = !isModalOpen.value;
+const closeModal = () => {
+  isModalOpen.value = false;
 };
 </script>
 
@@ -38,7 +34,7 @@ const toggleModal = () => {
     <PostModal
       v-if="isModalOpen"
       :post="post"
-      @closeModal="toggleModal"
+      @closeModal="closeModal"
     ></PostModal>
     <h1>New Post</h1>
     <div class="section-container">
@@ -46,12 +42,15 @@ const toggleModal = () => {
       <PostEditor></PostEditor>
     </div>
     <div class="button-container">
-      <BaseButton color="primary" @click="onSave">Save</BaseButton>
+      <BaseButton color="primary" @click="openModal">Save</BaseButton>
     </div>
   </section>
 </template>
 
 <style scoped>
+.section {
+  padding-bottom: 50px;
+}
 .section-container {
   display: flex;
   flex-direction: column;
