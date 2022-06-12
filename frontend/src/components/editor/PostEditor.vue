@@ -2,6 +2,7 @@
 import { ref } from "vue";
 
 const isWriting = ref(true);
+const content = ref("");
 </script>
 
 <template>
