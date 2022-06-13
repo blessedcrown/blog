@@ -4,12 +4,21 @@ import useFileList from "@/compositions/file-list";
 import BaseButton from "@/components/button/BaseButton.vue";
 import TextField from "@/components/input/TextField.vue";
 import DropZone from "@/components/dropzone/DropZone.vue";
+import { usePostStore } from "@/stores/post";
+import { useTagStore } from "@/stores/tag";
 
-defineProps({ post: Object });
-defineEmits(["closeModal"]);
+const props = defineProps({ post: Object });
+const emit = defineEmits(["closeModal"]);
+
+const postStore = usePostStore();
+const tagStore = useTagStore();
+
+const tag = ref("");
 
 const uploadedFile = ref();
 const isUploaded = ref(false);
+
+const dropZoneActive = ref(false);
 
 const toggleIsUploaded = () => {
   isUploaded.value = !isUploaded.value;
@@ -24,6 +33,20 @@ function onInputChange(e) {
     e.target.value = null;
     isUploaded.value = true;
   };
+}
+
+function onPublish() {
+  publishPost();
+  saveTag();
+  emit('closeModal');
+}
+
+function publishPost() {
+  postStore.publishPost(props.post);
+}
+
+function saveTag() {
+  tagStore.saveTag(tag.value);
 }
 </script>
 
@@ -74,10 +97,12 @@ function onInputChange(e) {
 
       <div class="input-container">
         <h4 class="label">Add a tag</h4>
-        <TextField placeholder="Type tag name here"></TextField>
+        <TextField v-model="tag" placeholder="Type tag name here"></TextField>
       </div>
 
-      <BaseButton color="primary">Publish</BaseButton>
+      <BaseButton 
+        @click="onPublish"
+        color="primary">Publish</BaseButton>
     </div>
   </div>
 </template>
@@ -91,13 +116,17 @@ function onInputChange(e) {
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .modal {
-  margin: 80px auto;
   background-color: white;
   border-radius: 5px;
   padding: 20px;
   width: max-content;
+  max-height: 80vh;
+  width: 50vw;
 }
 .title {
   margin-bottom: 26px;
@@ -111,8 +140,8 @@ function onInputChange(e) {
   margin-bottom: 10px;
 }
 .upload-area {
-  width: 700px;
-  height: 400px;
+  aspect-ratio: 2 / 1;
+  height: auto;
   background-color: var(--input-background);
 }
 .upload-wrapper {
@@ -141,8 +170,8 @@ function onInputChange(e) {
   position: relative;
 }
 .upload-image {
-  width: 700px;
-  height: 400px;
+  aspect-ratio: 2 / 1;
+  max-width: 100%;
 }
 .cancel-button {
   position: absolute;

@@ -20,6 +20,11 @@ const post = reactive({
   content: "",
 });
 
+const savePost = () => {
+  store.savePost(post);
+  openModal();
+}
+
 const openModal = () => {
   isModalOpen.value = true;
 };
@@ -39,10 +44,10 @@ const closeModal = () => {
     <h1>New Post</h1>
     <div class="section-container">
       <TextField class="input-text" placeholder="Title" v-model="post.title"></TextField>
-      <PostEditor></PostEditor>
+      <PostEditor v-model="post.content"></PostEditor>
     </div>
     <div class="button-container">
-      <BaseButton color="primary" @click="openModal">Save</BaseButton>
+      <BaseButton color="primary" @click="savePost">Save</BaseButton>
     </div>
   </section>
 </template>

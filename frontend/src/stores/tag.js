@@ -6,12 +6,12 @@ export const useTagStore = defineStore({
     tags: [],
   }),
   getters: {
-    getPostById: (state) => {
+    getTagById: (state) => {
       return (id) => state.tags.find((tag) => tag.id === id);
     },
   },
   actions: {
-    addPost(newTag) {
+    saveTag(newTag) {
       this.tags = [...this.tags, newTag];
     },
     deletePost() {},

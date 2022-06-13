@@ -25,22 +25,28 @@ export const usePostStore = defineStore({
     initPost() {
       const posts = [
         {
-          title: "Front End Tables: Sorting, Filtering, and Pagination",
-          content: "SampleMarkdown",
-        },
-        {
-          title: "An Introduction to MVC Pattern",
-          content: "SampleMarkdown",
-        },
-        {
-          title: "Creating a Schema-Based Form System",
-          content: "SampleMarkdown",
-        },
+          title: "Guide to Using Markdown Language",
+          content: `
+            Markdown is a lightweight markup language that you can use to add formatting elements to plaintext text documents. 
+            Created by John Gruber in 2004, Markdown is now one of the world’s most popular markup languages.
+          `,
+        }
       ];
 
       posts.forEach((post) => this.addPost(post));
     },
-    async addPost(newPost) {
+    /**
+     * Save the post in pinia store
+     * @param {*} post 
+     */
+    savePost(post) {
+      this.posts = [...this.posts, post];
+    },
+    /**
+     * Make API call to backend and save the post to DB
+     * @param {*} newPost 
+     */
+    async publishPost(newPost) {
       await axios
         .post("/api/post", qs.stringify(newPost), {
           headers: {
@@ -48,7 +54,7 @@ export const usePostStore = defineStore({
           },
         })
         .then((response) => {
-          this.posts = [...this.posts, response.data];
+          this.savePost(response.data);
         });
     },
     deletePost() {},
