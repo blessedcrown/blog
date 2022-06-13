@@ -7,7 +7,7 @@ import { usePostStore } from "@/stores/post";
 import { useCommentStore } from "@/stores/comment";
 import BaseButton from "@/components/button/BaseButton.vue";
 import CommentEditor from "@/components/editor/CommentEditor.vue";
-import { format } from 'date-fns';
+import { format, parse } from 'date-fns';
 
 const route = useRoute();
 const postId = route.params.id;
@@ -53,8 +53,10 @@ const onCreateComment = () => {
     <div>
       <img />
       <p class="post-description">
-        Written by <span class="post-author">{{ post.author }}</span> on
-        <span class="post-date">{{ post.date }}</span>
+        Written by <span class="post-author">Guest</span> on
+        <span class="post-date">
+          {{ format(parse(post.createdDate, "yyyy-MM-dd'T'HH:mm:ss.SSSSSS", new Date()), "yyyy-MM-dd") }}
+        </span>
       </p>
       <h1>{{ post.title }}</h1>
       <TagChip v-for="tag in post.tags" :key="post.id" :tag="tag">{{
