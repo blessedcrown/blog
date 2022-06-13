@@ -33,7 +33,7 @@ export const usePostStore = defineStore({
         }
       ];
 
-      posts.forEach((post) => this.addPost(post));
+      posts.forEach((post) => this.publishPost(post));
     },
     /**
      * Save the post in pinia store
