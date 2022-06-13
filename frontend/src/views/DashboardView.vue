@@ -1,4 +1,5 @@
 <script setup>
+import { onMounted } from "vue";
 import { storeToRefs } from "pinia";
 import { usePostStore } from "@/stores/post";
 
@@ -7,6 +8,10 @@ import PostCard from "@/components/card/PostCard.vue";
 
 const store = usePostStore();
 const { posts } = storeToRefs(store);
+
+onMounted(() => {
+  store.fetchPost();
+})
 </script>
 
 <template>

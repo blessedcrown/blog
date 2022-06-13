@@ -18,7 +18,8 @@ const shortTitle = computed(() => {
 
 <template>
   <RouterLink class="post-card" :to="{ name: 'posts', params: { id: id } }">
-    <img class="post-image" :src="'/src/assets/images/' + image" />
+    <img v-if="props.image" class="post-image" :src="'/src/assets/images/' + image" />
+    <img v-else class="post-image" src="/src/assets/images/default.jpeg" />
     <div class="post-right">
       <h4 class="post-title">{{ shortTitle }}</h4>
       <p class="post-date">{{ date }}</p>
